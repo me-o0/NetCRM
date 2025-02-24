@@ -1,0 +1,95 @@
+CREATE DATABASE mydb CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+
+USE mydb;
+
+CREATE TABLE member_types (
+id INT PRIMARY KEY,
+name VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE members (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(10) NOT NULL,
+age INT,
+address VARCHAR(255),
+type_id INT NOT NULL,
+created DATETIME NOT NULL
+);
+
+INSERT INTO member_types VALUES 
+(1, '通常会員'),
+(2, 'プレミアム会員');
+
+INSERT INTO members VALUES 
+(NULL,'福岡 弘義',27,'静岡県',1,NOW()),
+(NULL,'大平 直紀',34,'東京都',1,NOW()),
+(NULL,'田上 三起',18,'栃木県',1,NOW()),
+(NULL,'黒川 希久',77,'岡山県',2,NOW()),
+(NULL,'大島 郁穂',65,'福島県',1,NOW()),
+(NULL,'大崎 貞久',43,'新潟県',2,NOW()),
+(NULL,'沼田 道彦',24,'高知県',1,NOW()),
+(NULL,'木村 都義',47,'栃木県',1,NOW()),
+(NULL,'岡 鋼三郎',44,'福島県',1,NOW()),
+(NULL,'比嘉 千勢',35,'静岡県',1,NOW()),
+(NULL,'小野 亜里',14,'埼玉県',2,NOW()),
+(NULL,'北野 真理',98,'三重県',1,NOW()),
+(NULL,'中西 利克',23,'山形県',1,NOW()),
+(NULL,'大森 澄夫',46,'熊本県',1,NOW()),
+(NULL,'園田 克明',47,'東京都',2,NOW()),
+(NULL,'戸田 順子',26,'熊本県',2,NOW()),
+(NULL,'村井 八洲',41,'東京都',1,NOW()),
+(NULL,'吉井 美則',33,'岡山県',1,NOW()),
+(NULL,'中山 玲子',47,'栃木県',1,NOW()),
+(NULL,'村井 晴仁',74,'北海道',1,NOW()),
+(NULL,'山村 菊江',36,'和歌山',1,NOW()),
+(NULL,'竹本 隆司',25,'新潟県',1,NOW()),
+(NULL,'西田 芳尚',35,'熊本県',2,NOW()),
+(NULL,'沼田 房男',14,'秋田県',1,NOW()),
+(NULL,'川端 美喜',88,'新潟県',1,NOW()),
+(NULL,'竹中 敬久',23,'福岡県',1,NOW()),
+(NULL,'竹内 昭子',46,'三重県',1,NOW()),
+(NULL,'遠藤 秋徳',47,'東京都',1,NOW()),
+(NULL,'相沢 一世',26,'北海道',1,NOW()),
+(NULL,'野村 護助',41,'福岡県',1,NOW()),
+(NULL,'甲斐 喜治',36,'北海道',1,NOW()),
+(NULL,'遠藤 達生',25,'青森県',1,NOW()),
+(NULL,'古川 鉄次',35,'青森県',2,NOW()),
+(NULL,'宮内 虎之',14,'愛知県',1,NOW()),
+(NULL,'中山 好利',27,'東京都',1,NOW()),
+(NULL,'古田 好博',34,'愛知県',2,NOW()),
+(NULL,'大城 圭子',18,'埼玉県',1,NOW()),
+(NULL,'栗田 礼子',77,'福島県',1,NOW()),
+(NULL,'長谷 百里',65,'三重県',2,NOW()),
+(NULL,'若林 洋昌',43,'和歌山',1,NOW()),
+(NULL,'浅田 晃義',24,'東京都',1,NOW()),
+(NULL,'酒井 里江',47,'福井県',1,NOW()),
+(NULL,'大田 新太',44,'東京都',1,NOW()),
+(NULL,'古田 圭郎',35,'福岡県',1,NOW()),
+(NULL,'井口 美里',44,'青森県',2,NOW()),
+(NULL,'吉川 喜代',35,'神奈川',1,NOW()),
+(NULL,'小柳 勝英',98,'千葉県',1,NOW()),
+(NULL,'中嶋 為一',23,'青森県',2,NOW()),
+(NULL,'佐伯 聡美',46,'岡山県',1,NOW()),
+(NULL,'窪田 愛郎',47,'岡山県',1,NOW()),
+(NULL,'青木 益已',26,'福井県',1,NOW()),
+(NULL,'稲田 俊康',41,'千葉県',1,NOW()),
+(NULL,'鎌田 菊江',34,'栃木県',1,NOW()),
+(NULL,'稲垣 啓矩',18,'東京都',2,NOW()),
+(NULL,'永田 次生',77,'茨城県',1,NOW()),
+(NULL,'長谷川 千',65,'福島県',1,NOW()),
+(NULL,'松尾 朋子',43,'奈良県',1,NOW());
+
+
+CREATE TABLE admins (
+id INT PRIMARY KEY AUTO_INCREMENT,
+login_id VARCHAR(20) UNIQUE NOT NULL,
+login_pass CHAR(60)
+);
+INSERT INTO admins VALUES
+(NULL, 'taro',
+'$2a$10$a.gGtD/ZucesxdDtXTb/r.3aAd4PCCzEhW7oaY2iMSBEJQwkVI.Pu'),
+(NULL, 'hanako',
+'$2a$10$a.gGtD/ZucesxdDtXTb/r.3aAd4PCCzEhW7oaY2iMSBEJQwkVI.Pu');
+
+
